@@ -216,7 +216,8 @@ a.custom-card:hover {
   margin-top: 50px;
 }
 
-#alert-login {
+#alert-email,
+#alert-contr {
   color: red;
   font-size: smaller;
 }
