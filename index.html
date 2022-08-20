@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="google-signin-client_id" content="973002218683-qi1a9vi8dnahfuihfmbk2ekm0cdmbfhs.apps.googleusercontent.com">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="973002218683-a2575dcn16prbj71ke8ibel56br57joc.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <title>eMercado - Todo lo que busques está aquí</title>
 
@@ -24,48 +27,48 @@
   </header>
 
   <main class="mt-5">
+
     <div class="login">
       <div class="login-section">
 
-        <img src="img/login.png" class="login-img">
+        <img alt="logo-JaP" src="img/login.png" class="login-img">
 
       </div>
       <div class="form">
 
         <div class="login-section">
-         <label for="email"> Email </label> <br>
-         <input type="text" name="email" placeholder="Email" class="login-input" id="email">
-         </div>
+          <label for="email"> Email </label> <br>
+          <input type="text" name="email" placeholder="Email" class="login-input" id="email">
+        </div>
 
-         <div id="alert-email">
+        <div id="alert-email">
         </div>
 
 
-          <div class="login-section">
-            <label for="contraseña"> Contraseña </label> <br>
-            <input type="password" name="contraseña" placeholder="Contraseña" class="login-input"
-              id="contraseña">
-          </div>
+        <div class="login-section">
+          <label for="contraseña"> Contraseña </label> <br>
+          <input type="password" name="contraseña" placeholder="Contraseña" class="login-input" id="contraseña">
+        </div>
 
-          <div id="alert-contr">
-          </div>
+        <div id="alert-contr">
+        </div>
 
-          <div class="login-section">
-            <button type="button" class="login-button" id="button-ingresar">
-              Ingresar
-            </button>
-          </div>
+        <div class="login-section">
+          <button type="button" class="login-button" id="button-ingresar">
+            Ingresar
+          </button>
+        </div>
 
-          <div id="btn-google">
+        <div id="btn-google">
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-          </div>
+        </div>
 
-          <div class="login-section">
-            <a href="">¿Olvidaste tu contraseña?</a>
-          </div>
+        <div class="login-section">
+          <a href="">¿Olvidaste tu contraseña?</a>
+        </div>
 
       </div>
-      </div>
+    </div>
   </main>
 
   <footer class="footer-login">
@@ -73,30 +76,24 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
+      <p>Este sitio forma parte de <a rel="noopener" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+          Programar</a> -
         2022</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
 
-  <script src="js/login.js"></script>
   <script>
     function onSignIn(googleUser) {
-      // Useful data for your client-side scripts:
       var profile = googleUser.getBasicProfile();
-      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-      console.log('Full Name: ' + profile.getName());
-      console.log('Given Name: ' + profile.getGivenName());
-      console.log('Family Name: ' + profile.getFamilyName());
-      console.log("Image URL: " + profile.getImageUrl());
-      console.log("Email: " + profile.getEmail());
-
-      // The ID token you need to pass to your backend:
-      var id_token = googleUser.getAuthResponse().id_token;
-      console.log("ID Token: " + id_token);
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
   </script>
 
+  <script src="js/login.js"></script>
 
 </body>
 

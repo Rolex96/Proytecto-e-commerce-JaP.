@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })   
       
-/*function onSignIn(googleUser) {
+function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     $("#name").text(profile.getName());
     $("#email").text(profile.getEmail());
@@ -87,4 +87,4 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
   }
-  */
+  
