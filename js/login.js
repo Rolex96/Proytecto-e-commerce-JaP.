@@ -53,10 +53,14 @@ document.addEventListener("DOMContentLoaded", function(){
         if (email == '') {
             condicion = false;
             document.getElementById("alert-email").innerHTML = "Introduzca un Email válido";
+        }else{
+            document.getElementById("alert-email").innerHTML = "";
         }
         if (contraseña == '') {
             condicion = false;
             document.getElementById("alert-contr").innerHTML = "Introduzca una contraseña válida";
+        }else{
+            document.getElementById("alert-contr").innerHTML = "";
         }
         if (condicion){
             window.location.href = "portada.html";
@@ -64,3 +68,23 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })   
       
+/*function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    $("#name").text(profile.getName());
+    $("#email").text(profile.getEmail());
+    $("#image").attr('src',profile.getImageUrl());
+    $(".data").css("display","block");
+    $(g-signin2).css("display","none");
+
+  }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      alert("Su sesion ha sido cerrada");
+      $(g-signin2).css("display","block");
+      $(".data").css("display","none");
+
+    });
+  }
+  */
