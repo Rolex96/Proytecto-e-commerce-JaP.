@@ -236,6 +236,11 @@ a.custom-card:hover {
   height: 30px;
   ;
 }
+
+#btn-google {
+margin-left: 45px;
+}
+
 /*
 .data{
   display: none;

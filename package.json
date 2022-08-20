@@ -1,0 +1,23 @@
+{
+  "name": "workspace-inicial",
+  "version": "1.0.0",
+  "description": "Verificación con google para JaP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rolex96/Proytecto-e-commerce-JaP..git"
+  },
+  "author": "Rodolfo Pérez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rolex96/Proytecto-e-commerce-JaP./issues"
+  },
+  "homepage": "https://github.com/Rolex96/Proytecto-e-commerce-JaP.#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
