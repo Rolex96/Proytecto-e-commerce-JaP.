@@ -1,61 +1,98 @@
-/*
-function mostrarListado(listaDeAutos) {
-    for (const auto of listaDeAutos) {
-        let li = `
-        Nombre: ${auto.name}<br>
-        Descripción: ${auto.description}<br>
-        Divisa: ${auto.currency}<br>
-        Precio: ${auto.cost}<br>
-        <hr>
-        `;
-        document.getElementsById("autos101").innerHTML += li;
-    }
-}
-document.addEventListener("DOMContentLoaded", function () {
-    getJSONData(AUTOS_URL).then(resultado => {
-        if (resultado.status == "ok") {
-           mostrarListado(resultado.data.products);
-            console.log(resultado.data.products);
-        }
-        else {
-            alert("Algo ha fallado" + resultado.data)
-        }
-    })
-})
-*/
-function verListadoDeAutos(){
+let listadoDeProductos = [];
+let min;
+let max;
+let buscador;
 
-    let htmlContentToAppend = "";
-    for(let i = 0; i < listadoDeAutos.length; i++){
-        let auto = listadoDeAutos[i];
+function verListadoDeproductos() {
 
-            htmlContentToAppend += `
-            <div onclick="setCatID(${auto.id})" class="list-group-item list-group-item-action cursor-active">
+    let htmlAtributosproducto = "";
+
+    for (let producto of listadoDeProductos) {
+
+        if ((!(parseInt(producto.cost) < min) && (!(parseInt(producto.cost) > max)))) {
+            
+            let search = producto.name.toLowerCase()
+
+            if (search.includes(buscador) || buscador == undefined) {
+
+                htmlAtributosproducto += `
+            <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
-                        <img src="${auto.image}" alt="${auto.description}" class="img-thumbnail">
+                        <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${auto.name}</h4>
-                            <small class="text-muted">${auto.soldCount} artículos</small>
+                            <h4 class="mb-1">${producto.name} - ${producto.currency} ${producto.cost}</h4>
+                            <small class="text-muted">${producto.soldCount} artículos</small>
                         </div>
-                        <p class="mb-1">${auto.description}</p>
+                        <p class="mb-1">${producto.description}</p>
                     </div>
                 </div>
             </div>
             `
+            }
         }
-
-        document.getElementById("autos101").innerHTML = htmlContentToAppend;
     }
 
+    document.getElementById("productos").innerHTML = htmlAtributosproducto;
+}
 
-document.addEventListener("DOMContentLoaded", function(){
-    getJSONData(AUTOS_URL).then(function(resultado){
-        if (resultado.status === "ok"){
-            listadoDeAutos = resultado.data.products
-            verListadoDeAutos()
+/*
+Nada se ejecuta hasta este punto "DomContentLoaded",
+ que ejecuta una funcion;
+ lo primero que hace es llamar a getJSONData
+ y cuando se da una respuesta 'entonces'
+ el objeto que devolvio me fijo si su "status" es "ok" 
+ y si es así guardo la data que trae en una variable.
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    getJSONData(PRODUCTS_URL + "/" + localStorage.getItem("catID") + ".json").then(function (resultado) {
+        if (resultado.status === "ok") {
+            listadoDeProductos = resultado.data.products
+            verListadoDeproductos()
         }
     });
+
+    document.getElementById("filtrar").addEventListener("click", () => {
+        min = parseInt(document.getElementById("costMin").value);
+        max = parseInt(document.getElementById("costMax").value);
+        verListadoDeproductos(listadoDeProductos);
+    })
+
+    document.getElementById("limpiar").addEventListener("click", () => {
+        document.getElementById("costMin").value = "";
+        document.getElementById("costMax").value = "";
+        min = undefined;
+        max = undefined;
+        verListadoDeproductos(listadoDeProductos);
+    })
+
+    document.getElementById("ordenPorCant").addEventListener("click", () => {
+        listadoDeProductos.sort(function (a, b) {
+            return parseInt(b.soldCount) - parseInt(a.soldCount);
+        });
+        verListadoDeproductos(listadoDeProductos);
+    })
+
+    document.getElementById("ordenAsc").addEventListener("click", () => {
+        listadoDeProductos.sort(function (a, b) {
+            return parseInt(a.cost) - parseInt(b.cost);
+        });
+        verListadoDeproductos(listadoDeProductos);
+    })
+
+    document.getElementById("ordenDesc").addEventListener("click", () => {
+        listadoDeProductos.sort((a, b) => {
+            return parseInt(b.cost) - parseInt(a.cost);
+        });
+        verListadoDeproductos(listadoDeProductos);
+    })
+
+    document.getElementById("buscador").addEventListener("input", () => {
+        buscador = document.getElementById("buscador").value;
+        verListadoDeproductos(listadoDeProductos);
+    })
 });

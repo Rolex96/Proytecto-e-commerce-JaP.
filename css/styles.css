@@ -234,23 +234,17 @@ a.custom-card:hover {
 .header-login {
   background-color: #b0b0b0;
   height: 30px;
-  ;
 }
 
 #btn-google {
 margin-left: 45px;
 }
 
-/*
-.data{
-  display: none;
+#username {
+  color: #fff;
 }
 
-.g-signin2{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -50%;
-  margin-left: -50%;
+#buscador{
+  margin-bottom: 15px;
 }
-*/
+

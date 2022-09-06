@@ -44,8 +44,42 @@ const seCumple = true;
       } })
 */
 
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("button-ingresar").addEventListener("click", function(){
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    $("#name").text(profile.getName());
+    $("#email").text(profile.getEmail());
+    $("#image").attr('src', profile.getImageUrl());
+    $(".data").css("display", "block");
+    $(g - signin2).css("display", "none");
+
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        alert("Su sesion ha sido cerrada");
+        $(g - signin2).css("display", "block");
+        $(".data").css("display", "none");
+
+    });
+}
+
+function guardarUserName() {
+    let userName = document.getElementById("email")
+    localStorage.setItem("User name", userName.value)
+}
+function mostrarUserName() {
+    if (localStorage.getItem("User name")) {
+        nombreUsuario = localStorage.getItem("User name")
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("button-ingresar").addEventListener("click", function () {
+
+        guardarUserName();
+
         let email = document.getElementById("email").value;
         let contraseña = document.getElementById("contraseña").value;
         let condicion = true;
@@ -53,38 +87,18 @@ document.addEventListener("DOMContentLoaded", function(){
         if (email == '') {
             condicion = false;
             document.getElementById("alert-email").innerHTML = "Introduzca un Email válido";
-        }else{
+        } else {
             document.getElementById("alert-email").innerHTML = "";
         }
         if (contraseña == '') {
             condicion = false;
             document.getElementById("alert-contr").innerHTML = "Introduzca una contraseña válida";
-        }else{
+        } else {
             document.getElementById("alert-contr").innerHTML = "";
         }
-        if (condicion){
-            window.location.href = "portada.html";
+        if (condicion) {
+            window.location = "portada.html";
         }
     })
-})   
-      
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    $("#name").text(profile.getName());
-    $("#email").text(profile.getEmail());
-    $("#image").attr('src',profile.getImageUrl());
-    $(".data").css("display","block");
-    $(g-signin2).css("display","none");
+})
 
-  }
-
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      alert("Su sesion ha sido cerrada");
-      $(g-signin2).css("display","block");
-      $(".data").css("display","none");
-
-    });
-  }
-  

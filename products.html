@@ -2,7 +2,8 @@
 <html lang="es">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
 
@@ -10,6 +11,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -22,15 +24,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="portada.html">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categories.html"></a>
+            <a class="nav-link" href="categories.html">Categorias</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="my-profile.html" id="username"></a>
           </li>
         </ul>
       </div>
@@ -38,11 +41,52 @@
   </nav>
   <main class="pb-5 container">
     <div class="text-center p-4">
-      <h2>Autos</h2>
-      <p class="lead">Los mejores precios en autos 0km ,de media y alta gama.</p>
+      <h2>Productos</h2>
+      <p class="lead">Verás aquí todos los productos de la categoría</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="radio" class="btn-check" name="options" id="ordenDesc">
+            <label class="btn btn-light" for="ordenDesc"><i class="fas fa-sort-amount-down mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="ordenAsc">
+            <label class="btn btn-light" for="ordenAsc"><i class="fas fa-sort-amount-up mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="ordenPorCant" checked>
+            <label class="btn btn-light" for="ordenPorCant"><i class="fas fa-sort-amount-down mr-1">MÁS
+                VENDIDOS</i></label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+          <div class="col">
+            <input type="search" class="form-control" placeholder="Ingresa el nombre de un artículo." id="buscador">
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Cant.</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="costMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="costMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="limpiar">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div>
-      <ul id="autos101">
+      <ul id="productos">
       </ul>
     </div>
   </main>
@@ -51,7 +95,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
+      <p>Este sitio forma parte de <a rel="noopener" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+          Programar</a> -
         2022</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
