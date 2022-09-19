@@ -3,6 +3,11 @@ let min;
 let max;
 let buscador;
 
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}
+
 function verListadoDeproductos() {
 
     let htmlAtributosproducto = "";
@@ -16,7 +21,7 @@ function verListadoDeproductos() {
             if (search.includes(buscador) || buscador == undefined) {
 
                 htmlAtributosproducto += `
-            <div onclick="setCatID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${producto.image}" alt="${producto.description}" class="img-thumbnail">
