@@ -1,14 +1,14 @@
-let informacionDelProducto = [];
-let comentariosDelProducto = [];
-let imagenesDelProducto = [];
-let puntuacionDelProducto = [];
+    let informacionDelProducto = [];
+    let comentariosDelProducto = [];
+    let imagenesDelProducto = [];
+    let relDelProducto = [];
 
-function verinformacionDelProducto() {
+    function verinformacionDelProducto() {
 
-    let producto = informacionDelProducto;
-    let htmlInformacionproducto = "";
+        let producto = informacionDelProducto;
+        let htmlInformacionproducto = "";
 
-    htmlInformacionproducto += `
+        htmlInformacionproducto += `
     <div class="container">
      <h2 id="titulo">${producto.name}</h2>
      <hr>
@@ -24,38 +24,45 @@ function verinformacionDelProducto() {
     </div>
             `
 
-    document.getElementById("infoProducto").innerHTML = htmlInformacionproducto;
-}
+        document.getElementById("infoProducto").innerHTML = htmlInformacionproducto;
 
-function verimagenesDelProducto() {
-
-    let htmlImagenesproducto = "";
-
-    for (let imagen of imagenesDelProducto) {
-
-        htmlImagenesproducto +=
-            `    
-                   <div class="col" style="margin: 12px 12px ;">
-                      <img src="${imagen}" class="card img-fluid" alt="Imagenes meramente ilustrativas.">
-                   </div>
-            `
     }
 
-    document.getElementById("imagenesProducto").innerHTML = htmlImagenesproducto;
-}
+    function verimagenesDelProducto() {
 
-function vercomentariosDelProducto() {
+        let htmlImagenesproducto = "";
+        let imagen = imagenesDelProducto;
 
-    let htmlComentariosproducto = "";
+            htmlImagenesproducto +=
+                `    
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="${imagen[0]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="${imagen[1]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="${imagen[2]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+              <img src="${imagen[3]}" class="d-block w-100" alt="...">
+            </div>`
 
-    for (let comentario of comentariosDelProducto) {
+        document.getElementById("imagenesProducto").innerHTML = htmlImagenesproducto;
+        
+    }
 
-        if (comentario.score == 5)
+    function vercomentariosDelProducto() {
 
-            htmlComentariosproducto +=
+        let htmlComentariosproducto = "";
 
+        for (let comentario of comentariosDelProducto) {
 
-                `<div class="card">
+            if (comentario.score == 5) {
+
+                htmlComentariosproducto +=
+
+                    `<div class="card">
                                  <p  style="padding: 10px 10px 0px ;" ><strong>${comentario.user}</strong>
                                  - ${comentario.dateTime} -
                                  <i class="fa fa-star checked"></i>
@@ -64,14 +71,13 @@ function vercomentariosDelProducto() {
                                  <i class="fa fa-star checked"></i>
                                  <i class="fa fa-star checked"></i><br>
                                 ${comentario.description}</p>
-                            </div>`;
+                            </div>`}
 
-        if (comentario.score == 4)
+            else if (comentario.score == 4) {
 
-            htmlComentariosproducto +=
+                htmlComentariosproducto +=
 
-
-                `<div class="card">
+                    `<div class="card">
                                  <p  style="padding: 10px 10px 0px ;" ><strong>${comentario.user}</strong>
                                  - ${comentario.dateTime} - 
                                  <i class="fa fa-star checked"></i>
@@ -80,14 +86,13 @@ function vercomentariosDelProducto() {
                                  <i class="fa fa-star checked"></i>
                                  <i class="fa fa-star "></i><br>
                                 ${comentario.description}</p>
-                             </div>`
+                             </div>`}
 
-        if (comentario.score == 3)
+            else if (comentario.score == 3) {
 
-            htmlComentariosproducto +=
+                htmlComentariosproducto +=
 
-
-                `<div class="card">
+                    `<div class="card">
                                  <p  style="padding: 10px 10px 0px ;" ><strong>${comentario.user}</strong>
                                  - ${comentario.dateTime} -
                                  <i class="fa fa-star checked"></i>
@@ -96,14 +101,13 @@ function vercomentariosDelProducto() {
                                  <i class="fa fa-star "></i>
                                  <i class="fa fa-star "></i><br>
                                 ${comentario.description}</p>
-                             </div>`
+                             </div>`}
 
-        if (comentario.score == 2)
+            else if (comentario.score == 2) {
 
-            htmlComentariosproducto +=
+                htmlComentariosproducto +=
 
-
-                `<div class="card">
+                    `<div class="card">
                                  <p  style="padding: 10px 10px 0px ;" ><strong>${comentario.user}</strong>
                                  - ${comentario.dateTime} -
                                  <i class="fa fa-star checked"></i>
@@ -112,14 +116,13 @@ function vercomentariosDelProducto() {
                                  <i class="fa fa-star "></i>
                                  <i class="fa fa-star "></i><br>
                                ${comentario.description}</p>
-                            </div>`
-        
-        if (comentario.score == 1)
+                            </div>`}
 
-            htmlComentariosproducto +=
+            else {
 
+                htmlComentariosproducto +=
 
-                `<div class="card">
+                    `<div class="card">
                                  <p  style="padding: 10px 10px 0px ;" ><strong>${comentario.user}</strong>
                                  - ${comentario.dateTime} -
                                  <i class="fa fa-star checked"></i>
@@ -128,39 +131,106 @@ function vercomentariosDelProducto() {
                                  <i class="fa fa-star "></i>
                                  <i class="fa fa-star "></i><br>
                                ${comentario.description}</p>
-                            </div>`
-        console.log(comentario.score)
+                            </div>`}
+        }
 
+        document.getElementById("commentsProducto").innerHTML = htmlComentariosproducto;
     }
 
-    document.getElementById("commentsProducto").innerHTML = htmlComentariosproducto;
-}
+    function verproductosRelacionados() {
 
-verinformacionDelProducto();
-vercomentariosDelProducto();
-verimagenesDelProducto();
+        let htmlProductosRelacionados = "";
 
+        for (let producto of relDelProducto) {
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
-        if (resultado.status === "ok") {
-            informacionDelProducto = resultado.data
-            verinformacionDelProducto()
+            htmlProductosRelacionados +=
+                `      <div class="card col-3 cursor-active" onclick="setProdID(${producto.id})"
+                           style="margin: 12px 12px ; text-align: center ; ">
+                           <img src="${producto.image}" class="img-fluid" alt="">
+                           <div class"container">
+                            <h5>${producto.name}</h5 style="">
+                           </div>
+                       </div>
+            `
         }
-    });
-    getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
-        if (resultado.status === "ok") {
-            comentariosDelProducto = resultado.data
-            vercomentariosDelProducto()
-        }
-    });
-    getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
+        document.getElementById("prodRelacionados").innerHTML = htmlProductosRelacionados;
+    }
 
-        if (resultado.status === "ok") {
-            imagenesDelProducto = resultado.data.images
-            verimagenesDelProducto()
+    document.addEventListener("DOMContentLoaded", () => {
 
-        }
+        getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
+            if (resultado.status === "ok") {
+                informacionDelProducto = resultado.data
+                verinformacionDelProducto()
+            }
+        });
+        getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
+            if (resultado.status === "ok") {
+                comentariosDelProducto = resultado.data
+                vercomentariosDelProducto()
+            }
+        });
+        getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
+
+            if (resultado.status === "ok") {
+                imagenesDelProducto = resultado.data.images
+                verimagenesDelProducto()
+
+            }
+        });
+        getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json").then(function (resultado) {
+            if (resultado.status === "ok") {
+                relDelProducto = resultado.data.relatedProducts
+                verproductosRelacionados()
+            }
+        });
     });
-});
+
+    document.addEventListener("DOMContentLoaded", () => {
+    
+        let now = new Date();
+        let comentario = document.getElementById("comentario");
+        let listaDeComentarios = document.getElementById("commentsProducto");
+        let btnAgregar = document.getElementById("agregar");
+        let listado = window.localStorage.getItem("Lista");
+        let user = localStorage.getItem("User name");    
+
+        function guardarComentario(valor, listaDeComentarios) {
+    
+            listaDeComentarios.innerHTML +=  
+
+            `<div class="card">
+            <p  style="padding: 10px 10px 0px ;" ><strong>${user}</strong>
+            - ${now.getFullYear()}-${now.getMonth()}-${now.getDate()}
+              ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star "></i>
+            <i class="fa fa-star "></i>
+            <i class="fa fa-star "></i><br>
+             ${valor}</p></div>`;
+
+            listado.push(document.getElementById("commentsProduct"));
+
+            localStorage.setItem("Comentario", JSON.stringify(listado));
+    
+        };
+    
+        function limpiarComentario() {
+            if (listado == null) {
+                listado = [];
+            } 
+        };
+    
+        limpiarComentario();
+    
+        btnAgregar.addEventListener("click", () => {
+    
+            if (comentario.value !== "") {
+                guardarComentario(comentario.value, listaDeComentarios);
+                comentario.value = "";
+            };
+    
+        });
+    
+    });

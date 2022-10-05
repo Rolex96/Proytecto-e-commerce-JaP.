@@ -50,3 +50,11 @@ mostrarUserName ();
 
 document.getElementById("username").innerHTML += nombreUsuario ;
 
+function setProdID(id) {
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html"
+}
+
+document.getElementById("cerrarSesion").addEventListener("click", () => {
+  localStorage.removeItem("User name")
+})

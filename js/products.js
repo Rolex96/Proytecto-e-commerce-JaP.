@@ -21,6 +21,7 @@ function verListadoDeproductos() {
             if (search.includes(buscador) || buscador == undefined) {
 
                 htmlAtributosproducto += `
+                
             <div onclick="setProdID(${producto.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">

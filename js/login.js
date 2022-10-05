@@ -102,3 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
+      document.getElementById("contraseña").addEventListener("keyup", function (e) {
+        e.preventDefault();
+        if (e.keyCode === 13) {
+            document.getElementById("button-ingresar").click();
+        }
+    });
