@@ -250,3 +250,13 @@ margin-left: 45px;
 #titulo{
   padding: 25px 0 25px ;
 }
+
+#h3Cart{
+  margin: 30px 0 30px 0;
+}
+#inputCantidad{
+  width:30%;
+  height:35px;
+  border-radius: 10px;
+}
+

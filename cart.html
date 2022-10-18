@@ -31,7 +31,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="my-profile.html" role="button" id="username" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="my-profile.html" role="button" id="username"
+                data-bs-toggle="dropdown" aria-expanded="false">
               </a>
               <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
@@ -44,10 +45,80 @@
       </div>
     </div>
   </nav>
-  <main>
+  <main class="pb-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div>
+        <h2 class="text-center p-4">Carrito de compras</h2>
+        <h3 id="h3Cart">Artículos a comprar</h3>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-">
+        </div>
+        <div class="col col-lg-">
+          <b>Nombre</b>
+        </div>
+        <div class="col col-lg-">
+          <b>Costo</b>
+        </div>
+        <div class="col col-lg-">
+          <b>Cantidad</b>
+        </div>
+        <div class="col col-lg-">
+          <b>Subtotal</b>
+        </div>
+        <div>
+          <hr size="4">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" id="contenidoCarrito">
+    </div>
+    <div class="container">
+      <div>
+        <hr size="4">
+      </div>
+      <div>
+        <h3 id="h3Cart">Opciones de envío</h3>
+      </div>
+      <div class="d-block my-3">
+        <div class="custom-control custom-radio">
+          <input id="radioPremium" name="tipoDePublicacion" type="radio" class="custom-control-input" checked=""
+            required="">
+          <label class="custom-control-label" for="radioPremium">Premium 2 a 5 días (15%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="radioExpress" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="radioExpress">Express 5 a 8 días (7%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="radioEstandar" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="radioEstandar">Estándar 12 a 15 días (5%)</label>
+        </div>
+      </div>
+      <div>
+        <h3 id="h3Cart">Dirección de envío</h3>
+        <div class="row">
+          <div class="col-6">
+            <label for="productName">Calle</label>
+            <input type="text" class="form-control" id="calleComprador" value="" name="productName">
+          </div>
+          <div class="col-3">
+            <label for="productName">Número</label>
+            <input type="number" min="0" class="form-control" id="numeroComprador" value="" name="productName">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="productName">Esquina</label>
+            <input type="text" class="form-control" id="esquinaComprador" value="" name="productName">
+          </div>
+        </div>
+
+        <hr>
       </div>
     </div>
   </main>
