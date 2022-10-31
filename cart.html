@@ -45,83 +45,328 @@
       </div>
     </div>
   </nav>
+
   <main class="pb-5">
-    <div class="container">
-      <div>
-        <h2 class="text-center p-4">Carrito de compras</h2>
-        <h3 id="h3Cart">Artículos a comprar</h3>
+
+    <form method="dialog" class="needs-validation" novalidate>
+
+      <div class="container">
+        <div>
+          <h2 class="text-center p-4">Carrito de compras</h2>
+          <h3 id="h3Cart">Artículos a comprar</h3>
+        </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col col-lg-">
+
+      <div class="container">
+
+        <div class="row justify-content-md-center">
+
+          <div class="col col-lg-">
+          </div>
+          <div class="col col-lg-">
+            <b>Nombre</b>
+          </div>
+          <div class="col col-lg-">
+            <b>Costo</b>
+          </div>
+          <div class="col col-lg-">
+            <b>Cantidad</b>
+          </div>
+          <div class="col col-lg-">
+            <b>Subtotal</b>
+          </div>
+          <div>
+            <hr size="4">
+          </div>
         </div>
-        <div class="col col-lg-">
-          <b>Nombre</b>
-        </div>
-        <div class="col col-lg-">
-          <b>Costo</b>
-        </div>
-        <div class="col col-lg-">
-          <b>Cantidad</b>
-        </div>
-        <div class="col col-lg-">
-          <b>Subtotal</b>
-        </div>
+      </div>
+
+      <div class="container" id="contenidoCarrito">
+      </div>
+
+      <div class="container">
         <div>
           <hr size="4">
         </div>
-      </div>
-    </div>
 
-
-    <div class="container" id="contenidoCarrito">
-    </div>
-    <div class="container">
-      <div>
-        <hr size="4">
-      </div>
-      <div>
-        <h3 id="h3Cart">Opciones de envío</h3>
-      </div>
-      <div class="d-block my-3">
-        <div class="custom-control custom-radio">
-          <input id="radioPremium" name="tipoDePublicacion" type="radio" class="custom-control-input" checked=""
-            required="">
-          <label class="custom-control-label" for="radioPremium">Premium 2 a 5 días (15%)</label>
-        </div>
-        <div class="custom-control custom-radio">
-          <input id="radioExpress" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
-          <label class="custom-control-label" for="radioExpress">Express 5 a 8 días (7%)</label>
-        </div>
-        <div class="custom-control custom-radio">
-          <input id="radioEstandar" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
-          <label class="custom-control-label" for="radioEstandar">Estándar 12 a 15 días (5%)</label>
-        </div>
-      </div>
-      <div>
-        <h3 id="h3Cart">Dirección de envío</h3>
-        <div class="row">
-          <div class="col-6">
-            <label for="productName">Calle</label>
-            <input type="text" class="form-control" id="calleComprador" value="" name="productName">
-          </div>
-          <div class="col-3">
-            <label for="productName">Número</label>
-            <input type="number" min="0" class="form-control" id="numeroComprador" value="" name="productName">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <label for="productName">Esquina</label>
-            <input type="text" class="form-control" id="esquinaComprador" value="" name="productName">
-          </div>
+        <div>
+          <h3 id="h3Cart">Opciones de envío</h3>
         </div>
 
-        <hr>
+        <div class="d-block my-3">
+
+          <div class="custom-control custom-radio">
+            <input id="radioPremium" name="tipoDePublicacion" type="radio" class="custom-control-input" checked=""
+              required="">
+            <label class="custom-control-label" for="radioPremium">Premium 2 a 5 días (15%)</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input id="radioExpress" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="radioExpress">Express 5 a 8 días (7%)</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input id="radioEstandar" name="tipoDePublicacion" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="radioEstandar">Estándar 12 a 15 días (5%)</label>
+          </div>
+
+        </div>
+
+        <div>
+          <h3 id="h3Cart">Dirección de envío</h3>
+
+          <div class="row">
+
+            <div class="col-6">
+
+              <label for="infoTarjeta">Calle</label>
+              <input type="text" class="form-control" id="calleComprador" value="" name="infoTarjeta" required>
+
+              <div class="invalid-feedback">
+                Debe ingresar una calle
+              </div>
+
+            </div>
+
+            <div class="col-3">
+
+              <label for="infoTarjeta">Número</label>
+              <input type="number" min="0" class="form-control" id="numeroComprador" value="" name="infoTarjeta"
+                required>
+
+              <div class="invalid-feedback">
+                Debe ingresar un número
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-6">
+
+              <label for="infoTarjeta">Esquina</label>
+              <input type="text" class="form-control" id="esquinaComprador" value="" name="infoTarjeta" required>
+
+              <div class="invalid-feedback">
+                Debe ingresar una esquina
+              </div>
+
+            </div>
+
+          </div>
+
+          <div>
+            <hr size="4">
+          </div>
+
+          <div>
+
+            <h3 id="h3Cart">Costos</h3>
+
+            <div class="card">
+
+              <div class="card-body">
+
+                <div class="row">
+
+                  <div class="col-10">Subtotal</div>
+                  <div class="col" id="subtotalGeneral">-</div>
+
+                </div>
+
+                <div class="container">
+
+                  <div class="row" style="font-weight: lighter;">
+                    Costo unitario del producto por cantidad
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <div class="card-body">
+
+                <div class="row">
+
+                  <div class="col-10">Costo de envío</div>
+                  <div class="col" id="costoEnvio">-</div>
+
+                </div>
+
+                <div class="container">
+
+                  <div class="row" style="font-weight: lighter;">
+                    Según el tipo de envío
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="card">
+
+                <div class="card-body">
+
+                  <div class="row">
+
+                    <div class="col-10">Total (En Dólares)</div>
+                    <b class="col" id="total">-</b>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div>
+          <hr size="4">
+        </div>
+
+        <h3 id="h3Cart">Forma de pago</h3>
+        <div id="formaPago">No ha seleccionado</div>
+          <a href="#" class="link-primary col" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop" id="formaDePago"> Seleccionar </a>
+        <p id="invalid-feedback"></p>
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+
+            <form action="">
+
+              <div class="modal-content">
+                <div class="modal-header">
+
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Forma de pago</h1>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                  <input id="tarjetaCredito" name="formaDePago" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="tarjetaCredito">Tarjeta de crédito</label>
+
+                  <hr>
+                  <div class="row">
+
+                    <div class="col-6">
+
+                      <label for="infoTarjeta">Número de tarjeta</label>
+                      <input type="number" class="form-control" value="" name="infoTarjeta" id="numeroTarjeta" required>
+
+                    </div>
+
+                    <div class="col-4">
+
+                      <label for="infoTarjeta">Código de seg.</label>
+                      <input type="number" class="form-control" value="" name="infoTarjeta" id="codTarjeta" required>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-6">
+
+                      <label for="infoTarjeta">Vencimiento (MM/AA)</label>
+                      <input id="vencTarjeta" type="number" class="form-control" value="" name="infoTarjeta" required>
+
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <input id="transferencia" name="formaDePago" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="formaDePago">Transferencia bancaria</label>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-6">
+
+                      <label for="infoTarjeta">Número de cuenta</label>
+                      <input id="numeroDeCuenta" type="number" class="form-control" value="" name="infoTarjeta" required>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+        <div>
+          <hr size="4">
+        </div>
+
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">Finalizar compra</button>
+        </div>
+
       </div>
+
+    </form>
+
+
+
+    <div class="alert alert-success alert-dismissible fade d-flex align-items-center" role="alert" id="alertaExito">
+
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+        <use xlink:href="#check-circle-fill" />
+      </svg>
+
+      <div>
+        ¡Has comprado con éxito!
+      </div>
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 
+          9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+      </symbol>
+
+    </svg>
+
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
