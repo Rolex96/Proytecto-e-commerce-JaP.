@@ -68,11 +68,7 @@ function guardarUserName() {
     let userName = document.getElementById("email")
     localStorage.setItem("User name", userName.value)
 }
-function mostrarUserName() {
-    if (localStorage.getItem("User name")) {
-        nombreUsuario = localStorage.getItem("User name")
-    }
-}
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -102,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-      document.getElementById("contraseña").addEventListener("keyup", function (e) {
+    document.getElementById("contraseña").addEventListener("keyup", function (e) {
         e.preventDefault();
-        if (e.keyCode === 13) {
+        if (e.key === "Enter") {
             document.getElementById("button-ingresar").click();
         }
     });

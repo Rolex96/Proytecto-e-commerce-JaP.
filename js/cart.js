@@ -4,9 +4,17 @@ let formaDePago = document.getElementById("formaDePago");
 let feedback = document.getElementById("invalid-feedback");
 let porcentaje = 0.15;
 
+// Función que deshabilita el envío del formulario si hay campos no válidos
+
 (function () {
 
-  var forms = document.querySelectorAll('.needs-validation').forEach(function (form) {
+// Obtenemos el formulario al que queremos aplicar estilos de validación personalizados
+
+  document.querySelectorAll('.needs-validation')
+
+// Bucle sobre ellos y evitar el envío
+
+  .forEach(function (form) {
 
       form.addEventListener('submit', function (event) {
 
@@ -19,10 +27,19 @@ let porcentaje = 0.15;
 
         if (!form.checkValidity()) {
 
+        // El preventDefault() método de la Eventinterfaz le dice al agente de usuario que si el evento no se maneja explícitamente
+        // su acción predeterminada no debe tomarse como lo haría normalmente.
+
           event.preventDefault()
+
+        // El evento continúa propagándose como de costumbre, a menos que se llame al evento stopPropagation() 
+        // lo cual finaliza la propagación de inmediato.
+
           event.stopPropagation()
          
         }
+
+        //Bootstrap aplica los estilos :invalid y :valid a la clase padre .was-validated
 
         form.classList.add('was-validated')
 
@@ -112,8 +129,6 @@ function sacarCuentas(){
    document.getElementById("numeroDeCuenta").setAttribute("disabled", "");
    document.getElementById("formaPago").innerHTML = "Tarjeta de crédito";
  }
-
-
         
 document.addEventListener("DOMContentLoaded", () => {
     getJSONData(CART_INFO_URL + "25801.json").then(function (resultado) {

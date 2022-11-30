@@ -7,6 +7,15 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
+function verificarLogueo(){
+  if ( localStorage.getItem("User name") == undefined ) {
+    alert("Registrese para ingresar al contenido");
+    window.location = "index.html"
+  }
+}
+
+verificarLogueo();
+
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -58,3 +67,5 @@ function setProdID(id) {
 document.getElementById("cerrarSesion").addEventListener("click", () => {
   localStorage.removeItem("User name")
 })
+
+

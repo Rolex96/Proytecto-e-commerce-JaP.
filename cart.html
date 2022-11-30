@@ -48,6 +48,9 @@
 
   <main class="pb-5">
 
+    <!--Para los mensajes de validación personalizados, se debe agregar el atributo booleano
+   'novalidate' a el <form>. Esto deshabilita los tooltips de feedback predeterminados del navegador. -->
+
     <form method="dialog" class="needs-validation" novalidate>
 
       <div class="container">
@@ -237,8 +240,8 @@
 
         <h3 id="h3Cart">Forma de pago</h3>
         <div id="formaPago">No ha seleccionado</div>
-          <a href="#" class="link-primary col" data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop" id="formaDePago"> Seleccionar </a>
+        <a href="#" class="link-primary col" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="formaDePago">
+          Seleccionar </a>
         <p id="invalid-feedback"></p>
 
         <!-- Modal -->
@@ -305,7 +308,8 @@
                     <div class="col-6">
 
                       <label for="infoTarjeta">Número de cuenta</label>
-                      <input id="numeroDeCuenta" type="number" class="form-control" value="" name="infoTarjeta" required>
+                      <input id="numeroDeCuenta" type="number" class="form-control" value="" name="infoTarjeta"
+                        required>
 
                     </div>
 
